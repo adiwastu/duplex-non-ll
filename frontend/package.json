@@ -21,7 +21,6 @@
     "eslint-plugin-smells": "^1.0.1",
     "import-glob-loader": "^1.1.0",
     "mini-css-extract-plugin": "^0.4.0",
-    "node-sass": "^4.9.0",
     "raw-loader": "^0.5.1",
     "sass-loader": "^7.0.1",
     "sass-variables": "^0.1.0",
@@ -39,6 +38,7 @@
     "lodash": "^4.17.11",
     "react": "^16.8.0",
     "react-dom": "^16.8.0",
-    "react-router-dom": "^4.3.1"
+    "react-router-dom": "^4.3.1",
+    "sass": "^1.101.0"
   }
 }

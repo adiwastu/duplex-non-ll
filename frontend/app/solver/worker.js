@@ -1,5 +1,5 @@
 /* eslint-disable */
-const ENDPOINT = './duplex.wasm';
+const ENDPOINT = '/duplex-non-ll/duplex.wasm';
 
 const stack = [];
 const ref = { console_stack(method) { console.error('unreachable'); } };
