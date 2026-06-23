@@ -12,7 +12,7 @@ module.exports = (env={}, args={}) => {
             styles: './styles/main.scss',
         },
         output: {
-            path:     __dirname + '/../static/',
+            path:     __dirname + '/../docs/',
             filename: '[name].js',
         },
         module: {
@@ -41,7 +41,13 @@ module.exports = (env={}, args={}) => {
                     use: [
                         MiniCssExtractPlugin.loader, // in lieu of style-loader
                         { loader:'css-loader', options: { url: false } },
-                        { loader:'sass-loader' },
+                        // webpack.config.js — find the sass-loader rule (~line 43) and update:
+                        { 
+                            loader: 'sass-loader',
+                            options: {
+                                implementation: require('sass'),  // explicitly use Dart Sass
+                            }
+                        },
                         { loader:'import-glob-loader' },
                     ],
                 },
