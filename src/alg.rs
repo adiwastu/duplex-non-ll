@@ -72,20 +72,20 @@ pub struct Alg {
 
 impl Alg {
     pub fn new(json_alg: &JSONAlg) -> Result<Self, String> {
-         let moves = parse_moves(&json_alg.moves).map_err(|err| {
-             format!("{} ({})", err, json_alg.name)
-         })?;
-         let transform = moves_to_transform(&moves);
-         match transform.is_ll_transform() {
-             true => Ok(Alg {
-                 moves,
-                 transform,
-                 name: json_alg.name.to_owned(),
-                 mirror: false,
-                 invert: false
-             }),
-             false => Err(format!("Not an LL alg {} ({})", &json_alg.moves, &json_alg.name)),
-         }
+        let moves = parse_moves(&json_alg.moves).map_err(|err| {
+            format!("{} ({})", err, json_alg.name)
+        })?;
+        let transform = moves_to_transform(&moves);
+
+        // bypass LL alg: match transform.is_ll_transform() { ... }
+
+        Ok(Alg {
+            moves,
+            transform,
+            name: json_alg.name.to_owned(),
+            mirror: false,
+            invert: false,
+        })
     }
 
     pub fn get_full_name(&self) -> String {
